@@ -1,0 +1,29 @@
+{
+  "name": "virtual_keyboard",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [],
+  "main": "index.js",
+  "scripts": {
+    "dev": "webpack --mode development",
+    "prod": "webpack --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": "",
+  "license": "ICS",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": "",
+
+
+
+  "devDependencies": {
+    "eslint": "^8.14.0",
+    "webpack": "^5.72.0",
+    "webpack-cli": "^4.9.2"
+  }
+}
