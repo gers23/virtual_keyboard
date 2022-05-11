@@ -420,20 +420,6 @@ article {
           align-items: center;
 }
 
-.keyboard__key:hover {
-  cursor: pointer;
-  background-color: #d67b7b;
-}
-
-.keyboard__key:active {
-  background-color: #c75252;
-  border-radius: 20px;
-}
-
-.keyboard__key.active {
-  background-color: #c75252;
-}
-
 .keyboard__key.Tab {
   width: 50px;
   background-color: #c6daeb;
@@ -456,6 +442,20 @@ article {
 
 .keyboard__key.Space {
   width: 330px;
+}
+
+.keyboard__key:hover {
+  cursor: pointer;
+  background-color: #d67b7b;
+}
+
+.keyboard__key:active {
+  background-color: #c75252;
+  border-radius: 20px;
+}
+
+.keyboard__key.active {
+  background-color: #c75252;
 }
 
 span {
