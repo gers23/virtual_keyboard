@@ -268,5 +268,4 @@ function putLocalStorage() {
 function retrieveLocalStorage() {
   let retrieved = localStorage.getItem('lang');
   lang = JSON.parse(retrieved);
-  console.log(JSON.parse(retrieved));
 }
