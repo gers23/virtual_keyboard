@@ -58,7 +58,7 @@ hr {
  * 2. Correct the odd `em` font sizing in all browsers.
  */
 pre {
-  font-family: monoSpace, monoSpace;
+  font-family: monospace, monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -82,8 +82,8 @@ abbr[title] {
   /* 1 */
   text-decoration: underline;
   /* 2 */
-  -webkit-text-decoration: underline Periodted;
-          text-decoration: underline Periodted;
+  -webkit-text-decoration: underline dotted;
+          text-decoration: underline dotted;
   /* 2 */
 }
 
@@ -102,7 +102,7 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monoSpace, monoSpace;
+  font-family: monospace, monospace;
   /* 1 */
   font-size: 1em;
   /* 2 */
@@ -213,7 +213,7 @@ button:-moz-focusring,
 [type="button"]:-moz-focusring,
 [type="reset"]:-moz-focusring,
 [type="submit"]:-moz-focusring {
-  outline: 1px Periodted ButtonText;
+  outline: 1px dotted ButtonText;
 }
 
 /**
@@ -235,13 +235,13 @@ legend {
   /* 1 */
   color: inherit;
   /* 2 */
-  display: Table;
+  display: table;
   /* 1 */
   max-width: 100%;
   /* 1 */
   padding: 0;
   /* 3 */
-  white-Space: normal;
+  white-space: normal;
   /* 1 */
 }
 
@@ -366,10 +366,12 @@ article {
   -webkit-box-align: cEnter;
       -ms-flex-align: cEnter;
           align-items: cEnter;
+  row-gap: 15px;
 }
 
 .keyboard {
   margin: 0 auto;
+  padding: 6px;
   width: 700px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -379,6 +381,13 @@ article {
       -ms-flex-direction: column;
           flex-direction: column;
   row-gap: 5px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  background-color: #dddddd;
+  border: 2px solid black;
+  border-radius: 5px;
 }
 
 .keyboard__row {
@@ -387,8 +396,8 @@ article {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
+  -webkit-box-pack: Space-between;
+      -ms-flex-pack: Space-between;
           justify-content: Space-between;
 }
 
@@ -396,35 +405,61 @@ article {
   width: 40px;
   height: 40px;
   border: 1px solid black;
+  -webkit-transition: all .3s;
+  transition: all .3s;
+  background-color: #91aac0;
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .keyboard__key:hover {
   cursor: pointer;
-  background-color: #c8c8c8;
+  background-color: #d67b7b;
 }
 
 .keyboard__key:active {
-  background-color: #af5252;
+  background-color: #c75252;
+  border-radius: 20px;
+}
+
+.keyboard__key.active {
+  background-color: #c75252;
 }
 
 .keyboard__key.Tab {
   width: 50px;
+  background-color: #c6daeb;
 }
 
-.keyboard__key.del {
+.keyboard__key.Delete {
   width: 44px;
+  background-color: #c6daeb;
 }
 
-.keyboard__key.BackSpace, .keyboard__key.CapsLock, .keyboard__key.ShiftLeft {
+.keyboard__key.Backspace, .keyboard__key.CapsLock, .keyboard__key.ShiftLeft {
   width: 100px;
+  background-color: #c6daeb;
 }
 
 .keyboard__key.Enter, .keyboard__key.ShiftRight {
   width: 86px;
+  background-color: #c6daeb;
 }
 
 .keyboard__key.Space {
   width: 330px;
+}
+
+span {
+  pointer-events: none;
 }
 
 .hidden {
