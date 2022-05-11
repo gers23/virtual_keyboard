@@ -4,6 +4,7 @@ import { Key } from "./js/Key";
 import data from "./keys.json";
 
 window.onload = function() {
+  retrieveLocalStorage();
   console.log('welcome to the world');
 
   renderHTMLToDOM();
@@ -57,6 +58,8 @@ function changeLayout() {
   }
 
   changeActiveKeys();
+
+  putLocalStorage();
   
 }
 
@@ -134,14 +137,14 @@ function whichPressed(key) {
       case 'ShiftRight':
         inputTextToTextarea(key);
         break;
-      // case 'ControlLeft':
-      //   break;
-      // case 'ControlRight':
-      //   break;
-      // case 'AltLeft':
-      //   break;
-      // case 'AltRight':
-      //   break;
+      case 'ControlLeft':
+        break;
+      case 'ControlRight':
+        break;
+      case 'AltLeft':
+        break;
+      case 'AltRight':
+        break;
       case 'Space':
         inputTextToTextarea(' ');
         break;
@@ -256,3 +259,14 @@ document.addEventListener('mouseup', function(event) {
     whichPressed(keyEvent);
   }
 })
+
+// local storage
+function putLocalStorage() {
+  localStorage.setItem('lang', JSON.stringify(lang));
+}
+
+function retrieveLocalStorage() {
+  let retrieved = localStorage.getItem('lang');
+  lang = JSON.parse(retrieved);
+  console.log(JSON.parse(retrieved));
+}
