@@ -9,7 +9,7 @@
       },
 
       "Digit1": {
-        "name": "digit1",
+        "name": "Digit1",
         "caseDown": "1",
         "caseUp": "!",
         "caps": "1",
@@ -17,7 +17,7 @@
       },
 
       "Digit2": {
-        "name": "digit2",
+        "name": "Digit2",
         "caseDown": "2",
         "caseUp": "\"",
         "caps": "2",
@@ -25,7 +25,7 @@
       },
 
       "Digit3": {
-        "name": "digit3",
+        "name": "Digit3",
         "caseDown": "3",
         "caseUp": "№",
         "caps": "3",
@@ -33,7 +33,7 @@
       },
 
       "Digit4": {
-        "name": "digit4",
+        "name": "Digit4",
         "caseDown": "4",
         "caseUp": ";",
         "caps": "4",
@@ -41,7 +41,7 @@
       },
 
       "Digit5": {
-        "name": "digit5",
+        "name": "Digit5",
         "caseDown": "5",
         "caseUp": "%",
         "caps": "5",
@@ -49,7 +49,7 @@
       },
 
       "Digit6": {
-        "name": "digit6",
+        "name": "Digit6",
         "caseDown": "6",
         "caseUp": ":",
         "caps": "6",
@@ -57,7 +57,7 @@
       },
 
       "Digit7": {
-        "name": "digit7",
+        "name": "Digit7",
         "caseDown": "7",
         "caseUp": "?",
         "caps": "7",
@@ -65,7 +65,7 @@
       },
 
       "Digit8": {
-        "name": "digit8",
+        "name": "Digit8",
         "caseDown": "8",
         "caseUp": "*",
         "caps": "8",
@@ -73,7 +73,7 @@
       },
 
       "Digit9": {
-        "name": "digit9",
+        "name": "Digit9",
         "caseDown": "9",
         "caseUp": "(",
         "caps": "9",
@@ -81,7 +81,7 @@
       },
 
       "Digit0": {
-        "name": "digit0",
+        "name": "Digit0",
         "caseDown": "0",
         "caseUp": ")",
         "caps": "0",
@@ -100,12 +100,12 @@
         "name": "Equals",
         "caseDown": "=",
         "caseUp": "+",
-        "caps": "",
+        "caps": "=",
         "shiftCaps": "+"
       },
 
-      "BackSpace": {
-        "name": "BackSpace",
+      "Backspace": {
+        "name": "Backspace",
         "caseDown": "Backspace",
         "caseUp": "Backspace",
         "caps": "Backspace",
@@ -482,34 +482,34 @@
 
       "ArrowUp": {
         "name": "ArrowUp",
-        "caseDown": "&#8593",
-        "caseUp": "&#8593",
-        "caps": "&#8593",
-        "shiftCaps": "&#8593"
+        "caseDown": "↑",
+        "caseUp": "↑",
+        "caps": "↑",
+        "shiftCaps": "↑"
       },
 
       "ArrowDown": {
         "name": "ArrowDown",
-        "caseDown": "&#8595",
-        "caseUp": "&#8595",
-        "caps": "&#8595",
-        "shiftCaps": "&#8595"
+        "caseDown": "↓",
+        "caseUp": "↓",
+        "caps": "↓",
+        "shiftCaps": "↓"
       },
 
       "ArrowLeft": {
         "name": "ArrowLeft",
-        "caseDown": "&#8592",
-        "caseUp": "&#8592",
-        "caps": "&#8592",
-        "shiftCaps": "&#8592"
+        "caseDown": "←",
+        "caseUp": "←",
+        "caps": "←",
+        "shiftCaps": "←"
       },
 
       "ArrowRight": {
         "name": "ArrowRight",
-        "caseDown": "&#8594",
-        "caseUp": "&#8594",
-        "caps": "&#8594",
-        "shiftCaps": "&#8594"
+        "caseDown": "→",
+        "caseUp": "→",
+        "caps": "→",
+        "shiftCaps": "→"
       }
   },
 
@@ -525,7 +525,7 @@
       },
 
       "Digit1": {
-        "name": "digit1",
+        "name": "Digit1",
         "caseDown": "1",
         "caseUp": "!",
         "caps": "1",
@@ -533,7 +533,7 @@
       },
 
       "Digit2": {
-        "name": "digit2",
+        "name": "Digit2",
         "caseDown": "2",
         "caseUp": "@",
         "caps": "2",
@@ -541,7 +541,7 @@
       },
 
       "Digit3": {
-        "name": "digit3",
+        "name": "Digit3",
         "caseDown": "3",
         "caseUp": "#",
         "caps": "3",
@@ -549,7 +549,7 @@
       },
 
       "Digit4": {
-        "name": "digit4",
+        "name": "Digit4",
         "caseDown": "4",
         "caseUp": "$",
         "caps": "4",
@@ -557,7 +557,7 @@
       },
 
       "Digit5": {
-        "name": "digit5",
+        "name": "Digit5",
         "caseDown": "5",
         "caseUp": "%",
         "caps": "5",
@@ -565,7 +565,7 @@
       },
 
       "Digit6": {
-        "name": "digit6",
+        "name": "Digit6",
         "caseDown": "6",
         "caseUp": "^",
         "caps": "6",
@@ -573,7 +573,7 @@
       },
 
       "Digit7": {
-        "name": "digit7",
+        "name": "Digit7",
         "caseDown": "7",
         "caseUp": "&",
         "caps": "7",
@@ -581,7 +581,7 @@
       },
 
       "Digit8": {
-        "name": "digit8",
+        "name": "Digit8",
         "caseDown": "8",
         "caseUp": "*",
         "caps": "8",
@@ -589,7 +589,7 @@
       },
 
       "Digit9": {
-        "name": "digit9",
+        "name": "Digit9",
         "caseDown": "9",
         "caseUp": "(",
         "caps": "9",
@@ -597,7 +597,7 @@
       },
 
       "Digit0": {
-        "name": "digit0",
+        "name": "Digit0",
         "caseDown": "0",
         "caseUp": ")",
         "caps": "0",
@@ -616,12 +616,12 @@
         "name": "Equals",
         "caseDown": "=",
         "caseUp": "+",
-        "caps": "",
+        "caps": "=",
         "shiftCaps": "+"
       },
 
-      "BackSpace": {
-        "name": "BackSpace",
+      "Backspace": {
+        "name": "Backspace",
         "caseDown": "Backspace",
         "caseUp": "Backspace",
         "caps": "Backspace",
@@ -998,34 +998,34 @@
 
       "ArrowUp": {
         "name": "ArrowUp",
-        "caseDown": "&#8593",
-        "caseUp": "&#8593",
-        "caps": "&#8593",
-        "shiftCaps": "&#8593"
+        "caseDown": "↑",
+        "caseUp": "↑",
+        "caps": "↑",
+        "shiftCaps": "↑"
       },
 
       "ArrowDown": {
         "name": "ArrowDown",
-        "caseDown": "&#8595",
-        "caseUp": "&#8595",
-        "caps": "&#8595",
-        "shiftCaps": "&#8595"
+        "caseDown": "↓",
+        "caseUp": "↓",
+        "caps": "↓",
+        "shiftCaps": "↓"
       },
 
       "ArrowLeft": {
         "name": "ArrowLeft",
-        "caseDown": "&#8592",
-        "caseUp": "&#8592",
-        "caps": "&#8592",
-        "shiftCaps": "&#8592"
+        "caseDown": "←",
+        "caseUp": "←",
+        "caps": "←",
+        "shiftCaps": "←"
       },
 
       "ArrowRight": {
         "name": "ArrowRight",
-        "caseDown": "&#8594",
-        "caseUp": "&#8594",
-        "caps": "&#8594",
-        "shiftCaps": "&#8594"
+        "caseDown": "→",
+        "caseUp": "→",
+        "caps": "→",
+        "shiftCaps": "→"
       } 
   }
 }

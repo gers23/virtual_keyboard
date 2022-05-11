@@ -1,9 +1,10 @@
+/dist
 /node_modules
 /webpack.config.js
-/.eslintrc.js
+# /.eslintrc.js
 /src/sass/abstracts
 /src/sass/base
 /src/sass/components
 /src/sass/main.scss
 /src/sass/main.css.map
-/src/js
+# /src/js

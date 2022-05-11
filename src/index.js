@@ -13,10 +13,12 @@ window.onload = function() {
 }
 
 let lang = 'rus';
-let activeKeys = 'caseDown';
+let activeKeys = "caseDown";
+let position = 0;
+let shiftKey = false;
 
 const rowsKeys = [
-  ["BackQuote", "Digit1", "Digit2", "Digit3", "Digit4", "Digit5", "Digit6", "Digit7", "Digit8", "Digit9", "Digit0", "Minus", "Equals", "BackSpace"],
+  ["BackQuote", "Digit1", "Digit2", "Digit3", "Digit4", "Digit5", "Digit6", "Digit7", "Digit8", "Digit9", "Digit0", "Minus", "Equals", "Backspace"],
   ["Tab", "KeyQ", "KeyW", "KeyE", "KeyR", "KeyT", "KeyY", "KeyU", "KeyI", "KeyO", "KeyP", "BracketLeft", "BracketRight", "BackSlash", "Delete"],
   ["CapsLock", "KeyA", "KeyS", "KeyD", "KeyF", "KeyG", "KeyH", "KeyJ", "KeyK", "KeyL", "Semicolon", "Quote", "Enter"],
   ["ShiftLeft", "KeyZ", "KeyX", "KeyC", "KeyV", "KeyB", "KeyN", "KeyM", "Comma", "Period", "Slash", "ArrowUp", "ShiftRight"],
@@ -40,7 +42,6 @@ function renderKeyboard(data, rowsKeys) {
 }
 
 function changeLayout() {
-  console.log(lang === 'rus');
   let rus = document.querySelectorAll('.rus');
   let eng = document.querySelectorAll('.eng');
 
@@ -48,8 +49,10 @@ function changeLayout() {
   rus.forEach(el => hideKeys(el));
 
   if(lang === 'rus') {
+    rus.forEach(el => el.classList.remove('hidden'));
     eng.forEach(el => el.classList.add('hidden'));
   } else {
+    eng.forEach(el => el.classList.remove('hidden'));
     rus.forEach(el => el.classList.add('hidden'));
   }
 
@@ -83,80 +86,173 @@ function changeActiveKeys() {
   }
 }
 
-// events
-document.addEventListener('keydown', function(event) {
-  console.log(event);
-})
 
-document.addEventListener('click', function(event) {
+// controller function
+
+function pressKey(event) {
+  if (event.type === 'click') {
+    let keyEvent = detectPressing(event);
+    if(keyEvent && ((keyEvent !== 'ShiftLeft' && keyEvent !== 'ShiftRight') || 
+    ((keyEvent === 'ShiftLeft' || keyEvent === 'ShiftRight') && (activeKeys === 'caseUp' || activeKeys === 'shiftCaps')))) {
+      whichPressed(keyEvent);
+    }
+  } else if (event.type === 'keydown' || event.type === 'keyup') {
+    let keyEvent = event.code;
+    whichPressed(keyEvent);
+  }
+}
+
+function detectPressing(event) {
   let key = event.target.className.split(' ');
-  if(key[0] === 'keyboard__key') {
-    console.log(key[1]);
-    switch (key[1]) {
-      case 'BackSpace':
-        console.log('backspace');
-        inputTextToTextarea(key[1]);
+  if(key[1] === 'key') {
+    return key[2];
+  } else if (key[0] === 'textarea') {
+    position = document.querySelector('.textarea').selectionEnd;
+  }
+}
+
+function whichPressed(key) {
+  switch (key) {
+      case 'Backspace':
+        inputTextToTextarea(key);
+        break;
+      case 'Delete':
+        inputTextToTextarea(key);
         break;
       case 'Tab':
-        console.log('tab');
         inputTextToTextarea('    ');
         break;
       case 'CapsLock':
-        console.log('caps');
+        inputTextToTextarea(key);
         break;
       case 'Enter':
-        console.log('enter');
+        inputTextToTextarea(key);
         break;
       case 'ShiftLeft':
-        console.log('shift');
-        inputTextToTextarea(key[1]);
+        inputTextToTextarea(key);
         break;
       case 'ShiftRight':
-        console.log('shift');
+        inputTextToTextarea(key);
         break;
-      case 'ControlLeft':
-        console.log('ctrl');
-        break;
-      case 'ControlRight':
-        console.log('ctrl');
-        break;
-      case 'AltLeft':
-        console.log('alt');
-        break;
-      case 'AltRight':
-        console.log('alt');
-        break;
+      // case 'ControlLeft':
+      //   break;
+      // case 'ControlRight':
+      //   break;
+      // case 'AltLeft':
+      //   break;
+      // case 'AltRight':
+      //   break;
       case 'Space':
-        console.log('space');
         inputTextToTextarea(' ');
         break;
       case 'MetaLeft':
-        console.log('win');
         break;
       default:
-        console.log(`${data[lang][key[1]][activeKeys]}`);
-        let value = `${data[lang][key[1]][activeKeys]}`;
+        let value = `${data[lang][key][activeKeys]}`;
         inputTextToTextarea(value);
         break;
     }
-  } else console.log('sosi');
-  
-})
+}
+
 
 function inputTextToTextarea(value) {
-  if (value === 'BackSpace') {
+  let textarea = document.querySelector('.textarea');
+  if (position) textarea.selectionEnd = position;
+  
+  if (value === 'Backspace') {
     // let key = new KeyboardEvent('keydown', { key: value});
     // document.dispatchEvent(key)
-    let arr = document.querySelector('.textarea').value.split('');
-    arr.pop();
-    document.querySelector('.textarea').value = arr.join('');
-  } else if (value === 'ShiftLeft') {
-    activeKeys = 'caseUp';
+    deleteSymbol(textarea, position - 1);
+    // let arr = document.querySelector('.textarea').value.split('');
+    // arr.pop();
+    // document.querySelector('.textarea').value = arr.join('');
+
+  } else if (value === 'Delete') {
+    deleteSymbol(textarea, position);
+    
+  } else if (value === 'Enter') {
+    addSymbol(textarea, position, '\n');
+
+  } else if (value === 'CapsLock') {
+    document.querySelector(`.${value}`).classList.toggle('active');
+    document.querySelectorAll(`.${activeKeys}`).forEach(el => el.classList.toggle('hidden'));
+    if (activeKeys === 'caseUp') activeKeys = 'shiftCaps';
+    else if (activeKeys === 'caps') activeKeys = 'caseDown';
+    else if (activeKeys === 'shiftCaps') activeKeys = 'caseUp';
+    else activeKeys = 'caps';
     changeActiveKeys();
-    console.log(activeKeys);
+
+  } else if (value === 'ShiftLeft' || value === 'ShiftRight') {
+    document.querySelector(`.${value}`).classList.toggle('active');
+    document.querySelectorAll(`.${activeKeys}`).forEach(el => el.classList.toggle('hidden'));
+    if (activeKeys === 'caseDown') activeKeys = 'caseUp';
+    else if (activeKeys === 'caseUp') activeKeys = 'caseDown';
+    else if (activeKeys === 'caps') activeKeys = 'shiftCaps';
+    else if (activeKeys === 'shiftCaps') activeKeys = 'caps';
+    
+    changeActiveKeys();
   
   } else {
-    document.querySelector('.textarea').value += value;
+    addSymbol(textarea, position, value);
   }
-  
 }
+
+function addSymbol(textarea, index, value) {
+  let arr = textarea.value.split('');
+  arr.splice(index, 0, value);
+
+  if (index - 1 === textarea.value.length) position = textarea.value.length;
+  else position = index + 1;
+  
+  textarea.value = arr.join('');
+}
+
+function deleteSymbol(textarea, index) {
+  let arr = textarea.value.split('');
+  arr.splice(index, 1);
+  position = index;
+  textarea.value = arr.join('');
+}
+
+// events
+
+document.addEventListener('keydown', function(event) {
+  if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight') && shiftKey === false) {
+    shiftKey = true;
+    pressKey(event);
+  } else if (event.repeat) {
+  } else if (event.ctrlKey && event.code === 'AltLeft') {
+    if (lang === 'rus') lang = 'eng';
+    else lang = 'rus';
+    changeLayout();
+  } else pressKey(event);
+  
+
+})
+
+document.addEventListener('keyup', function(event) {
+  if ((event.code === 'ShiftLeft' || event.code === 'ShiftRight')) {
+    shiftKey = false;
+    pressKey(event);
+  } else if (event.repeat) {
+
+  }
+})
+
+document.addEventListener('click', function(event) {
+  pressKey(event);
+})
+
+document.addEventListener('mousedown', function(event) {
+  let keyEvent = detectPressing(event);
+  if((keyEvent === 'ShiftLeft' || keyEvent === 'ShiftRight')) {
+    whichPressed(keyEvent);
+  }
+})
+
+document.addEventListener('mouseup', function(event) {
+  let keyEvent = detectPressing(event);
+  if(keyEvent === 'ShiftLeft' || keyEvent === 'ShiftRight') {
+    whichPressed(keyEvent);
+  }
+})
